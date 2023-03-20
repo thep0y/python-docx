@@ -1,12 +1,37 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @Author:      thepoy
+# @Email:       thepoy@163.com
+# @File Name:   style.py
+# @Created At:  2023-03-20 11:19:12
+# @Modified At: 2023-03-20 16:24:57
+# @Modified By: thepoy
+
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @Author:      thepoy
+# @Email:       thepoy@163.com
+# @File Name:   style.py
+# @Created At:  2023-03-20 11:19:12
+# @Modified At: 2023-03-20 16:24:51
+# @Modified By: thepoy
+
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @Author:      thepoy
+# @Email:       thepoy@163.com
+# @File Name:   style.py
+# @Created At:  2023-03-20 11:19:12
+# @Modified At: 2023-03-20 16:24:28
+# @Modified By: thepoy
+
 # encoding: utf-8
 
 """
 Style object hierarchy.
 """
 
-from __future__ import (
-    absolute_import, division, print_function, unicode_literals
-)
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 from . import BabelFish
 from ..enum.style import WD_STYLE_TYPE
@@ -21,10 +46,10 @@ def StyleFactory(style_elm):
     to the type of *style_elm*.
     """
     style_cls = {
-        WD_STYLE_TYPE.PARAGRAPH: _ParagraphStyle,
-        WD_STYLE_TYPE.CHARACTER: _CharacterStyle,
-        WD_STYLE_TYPE.TABLE:     _TableStyle,
-        WD_STYLE_TYPE.LIST:      _NumberingStyle
+        WD_STYLE_TYPE.PARAGRAPH: ParagraphStyle,
+        WD_STYLE_TYPE.CHARACTER: CharacterStyle,
+        WD_STYLE_TYPE.TABLE: TableStyle,
+        WD_STYLE_TYPE.LIST: NumberingStyle,
     }[style_elm.type]
 
     return style_cls(style_elm)
@@ -168,7 +193,7 @@ class BaseStyle(ElementProxy):
         self._element.unhideWhenUsed_val = value
 
 
-class _CharacterStyle(BaseStyle):
+class CharacterStyle(BaseStyle):
     """
     A character style. A character style is applied to a |Run| object and
     primarily provides character-level formatting via the |Font| object in
@@ -202,7 +227,7 @@ class _CharacterStyle(BaseStyle):
         return Font(self._element)
 
 
-class _ParagraphStyle(_CharacterStyle):
+class ParagraphStyle(CharacterStyle):
     """
     A paragraph style. A paragraph style provides both character formatting
     and paragraph formatting such as indentation and line-spacing.
@@ -211,7 +236,7 @@ class _ParagraphStyle(_CharacterStyle):
     __slots__ = ()
 
     def __repr__(self):
-        return '_ParagraphStyle(\'%s\') id: %s' % (self.name, id(self))
+        return "_ParagraphStyle('%s') id: %s" % (self.name, id(self))
 
     @property
     def next_paragraph_style(self):
@@ -245,7 +270,7 @@ class _ParagraphStyle(_CharacterStyle):
         return ParagraphFormat(self._element)
 
 
-class _TableStyle(_ParagraphStyle):
+class TableStyle(ParagraphStyle):
     """
     A table style. A table style provides character and paragraph formatting
     for its contents as well as special table formatting properties.
@@ -254,10 +279,10 @@ class _TableStyle(_ParagraphStyle):
     __slots__ = ()
 
     def __repr__(self):
-        return '_TableStyle(\'%s\') id: %s' % (self.name, id(self))
+        return "_TableStyle('%s') id: %s" % (self.name, id(self))
 
 
-class _NumberingStyle(BaseStyle):
+class NumberingStyle(BaseStyle):
     """
     A numbering style. Not yet implemented.
     """
