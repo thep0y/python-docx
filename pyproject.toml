@@ -24,9 +24,8 @@ repository = "https://github.com/thep0y/python-docx"
 packages = ["docx"]
 
 [tool.setuptools.package-data]
-docx = ["py.typed"]
+docx = ["document.pyi", "templates/*.xml", "templates/*.docx"]
 
-# 即使为空也必须有这个 section 才能使用 setuptools_scm
 [tool.setuptools_scm]
 write_to = "docx/version.py"
 
