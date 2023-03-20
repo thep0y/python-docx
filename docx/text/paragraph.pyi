@@ -4,12 +4,12 @@
 # @Email:       thepoy@163.com
 # @File Name:   paragraph.pyi
 # @Created At:  2023-03-20 15:59:18
-# @Modified At: 2023-03-20 16:30:05
+# @Modified At: 2023-03-20 18:07:36
 # @Modified By: thepoy
 
 from typing import Any, Self
 from lxml.etree import ElementBase as Element
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.enum.base import EnumValue
 
 from docx.styles.style import ParagraphStyle
 from docx.text.parfmt import ParagraphFormat
@@ -22,9 +22,9 @@ class Paragraph(Parented):
         self, text: str | None = ..., style: ParagraphStyle | None = ...
     ) -> Run: ...
     @property
-    def alignment(self) -> WD_PARAGRAPH_ALIGNMENT: ...
+    def alignment(self) -> EnumValue: ...
     @alignment.setter
-    def alignment(self, value: WD_PARAGRAPH_ALIGNMENT) -> None: ...
+    def alignment(self, value: EnumValue) -> None: ...
     def clear(self) -> Self: ...
     def insert_paragraph_before(
         self, text: str | None = ..., style: ParagraphStyle | None = ...
