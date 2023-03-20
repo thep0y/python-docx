@@ -4,7 +4,7 @@
 # @Email:       thepoy@163.com
 # @File Name:   document.pyi
 # @Created At:  2023-03-20 14:32:58
-# @Modified At: 2023-03-20 15:06:42
+# @Modified At: 2023-03-20 18:49:00
 # @Modified By: thepoy
 
 from typing import BinaryIO
@@ -12,6 +12,8 @@ from pathlib import Path
 from lxml.etree import ElementBase as Element
 from docx.blkcntnr import BlockItemContainer
 from docx.opc.part import Part
+from docx.oxml.document import CT_Document
+from docx.parts.document import DocumentPart
 from docx.shared import ElementProxy, Emu
 from docx.text.paragraph import Paragraph
 from docx.shape import InlineShape, InlineShapes
@@ -27,6 +29,9 @@ from docx.table import Table
 StrPath = Path | str
 
 class Document(ElementProxy):
+    _element: CT_Document
+    _part: DocumentPart
+
     def __init__(self, element: Element, part: Part) -> None: ...
     def add_heading(self, text: str = ..., level: int = ...) -> Paragraph: ...
     def add_page_break(self) -> Paragraph: ...

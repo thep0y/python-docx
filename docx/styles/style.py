@@ -4,28 +4,9 @@
 # @Email:       thepoy@163.com
 # @File Name:   style.py
 # @Created At:  2023-03-20 11:19:12
-# @Modified At: 2023-03-20 16:24:57
+# @Modified At: 2023-03-20 18:40:55
 # @Modified By: thepoy
 
-#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
-# @Author:      thepoy
-# @Email:       thepoy@163.com
-# @File Name:   style.py
-# @Created At:  2023-03-20 11:19:12
-# @Modified At: 2023-03-20 16:24:51
-# @Modified By: thepoy
-
-#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
-# @Author:      thepoy
-# @Email:       thepoy@163.com
-# @File Name:   style.py
-# @Created At:  2023-03-20 11:19:12
-# @Modified At: 2023-03-20 16:24:28
-# @Modified By: thepoy
-
-# encoding: utf-8
 
 """
 Style object hierarchy.
