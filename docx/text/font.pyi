@@ -4,7 +4,7 @@
 # @Email:       thepoy@163.com
 # @File Name:   font.pyi
 # @Created At:  2023-03-20 16:41:45
-# @Modified At: 2023-03-20 18:14:52
+# @Modified At: 2023-03-20 18:30:05
 # @Modified By: thepoy
 
 from docx.dml.color import ColorFormat
@@ -17,3 +17,7 @@ class Font(ElementProxy):
     def size(self, emu: Pt) -> None: ...
     @property
     def color(self) -> ColorFormat: ...
+    @property
+    def name(self) -> str: ...
+    @name.setter
+    def name(self, value: str) -> None: ...
