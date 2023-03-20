@@ -1,4 +1,11 @@
-# encoding: utf-8
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @Author:      thepoy
+# @Email:       thepoy@163.com
+# @File Name:   api.py
+# @Created At:  2023-03-20 11:19:12
+# @Modified At: 2023-03-20 14:13:49
+# @Modified By: thepoy
 
 """
 Directly exposed API functions and classes, :func:`Document` for now.
@@ -10,11 +17,12 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
+from pathlib import Path
 from docx.opc.constants import CONTENT_TYPE as CT
 from docx.package import Package
 
 
-def Document(docx=None):
+def new_document(docx=None):
     """
     Return a |Document| object loaded from *docx*, where *docx* can be
     either a path to a ``.docx`` file (a string) or a file-like object. If
@@ -29,9 +37,19 @@ def Document(docx=None):
     return document_part.document
 
 
+def Document(docx=None):
+    """
+    Return a |Document| object loaded from *docx*, where *docx* can be
+    either a path to a ``.docx`` file (a string) or a file-like object. If
+    *docx* is missing or ``None``, the built-in default document "template"
+    is loaded.
+    """
+    return new_document(docx)
+
+
 def _default_docx_path():
     """
     Return the path to the built-in default .docx package.
     """
-    _thisdir = os.path.split(__file__)[0]
-    return os.path.join(_thisdir, 'templates', 'default.docx')
+    current_dir = Path(os.path.dirname(__file__))
+    return current_dir / "templates" / "default.docx"
