@@ -4,7 +4,7 @@
 # @Email:       thepoy@163.com
 # @File Name:   oxml.py
 # @Created At:  2023-03-20 11:19:12
-# @Modified At: 2023-03-20 17:00:39
+# @Modified At: 2023-03-20 17:28:51
 # @Modified By: thepoy
 
 # encoding: utf-8
@@ -299,11 +299,11 @@ class CT_Types(BaseOxmlElement):
         return self.findall(qn("ct:Override"))
 
 
-ct_namespace = element_class_lookup.get_namespace(nsmap["ct"].value)
+ct_namespace = element_class_lookup.get_namespace(nsmap["ct"])
 ct_namespace["Default"] = CT_Default
 ct_namespace["Override"] = CT_Override
 ct_namespace["Types"] = CT_Types
 
-pr_namespace = element_class_lookup.get_namespace(nsmap["pr"].value)
+pr_namespace = element_class_lookup.get_namespace(nsmap["pr"])
 pr_namespace["Relationship"] = CT_Relationship
 pr_namespace["Relationships"] = CT_Relationships

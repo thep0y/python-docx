@@ -4,7 +4,7 @@
 # @Email:       thepoy@163.com
 # @File Name:   constants.py
 # @Created At:  2023-03-20 11:19:12
-# @Modified At: 2023-03-20 12:01:56
+# @Modified At: 2023-03-20 17:27:27
 # @Modified By: thepoy
 
 # encoding: utf-8
@@ -14,10 +14,8 @@ Constant values related to the Open Packaging Convention, in particular,
 content types and relationship types.
 """
 
-from enum import Enum
 
-
-class CONTENT_TYPE(Enum):
+class CONTENT_TYPE:
     """
     Content type URIs (like MIME-types) that specify a part's format
     """
@@ -272,7 +270,7 @@ class CONTENT_TYPE(Enum):
     X_WMF = "image/x-wmf"
 
 
-class NAMESPACE(Enum):
+class NAMESPACE:
     """Constant values for OPC XML namespaces"""
 
     DML_WORDPROCESSING_DRAWING = (
@@ -286,14 +284,14 @@ class NAMESPACE(Enum):
     WML_MAIN = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
 
-class RELATIONSHIP_TARGET_MODE(Enum):
+class RELATIONSHIP_TARGET_MODE:
     """Open XML relationship target modes"""
 
     EXTERNAL = "External"
     INTERNAL = "Internal"
 
 
-class RELATIONSHIP_TYPE(Enum):
+class RELATIONSHIP_TYPE:
     AUDIO = (
         "http://schemas.openxmlformats.org/officeDocument/2006/relationships" "/audio"
     )
