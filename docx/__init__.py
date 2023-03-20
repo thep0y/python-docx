@@ -1,8 +1,13 @@
-# encoding: utf-8
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @Author:      thepoy
+# @Email:       thepoy@163.com
+# @File Name:   __init__.py
+# @Created At:  2023-03-20 11:19:12
+# @Modified At: 2023-03-20 15:34:49
+# @Modified By: thepoy
 
-from docx.api import Document  # noqa
-
-__version__ = "0.8.11"
+from docx.api import Document, new_document
 
 
 # register custom Part classes with opc package reader
@@ -19,7 +24,7 @@ from docx.parts.settings import SettingsPart
 from docx.parts.styles import StylesPart
 
 
-def part_class_selector(content_type, reltype):
+def part_class_selector(content_type: str, reltype: str):
     if reltype == RT.IMAGE:
         return ImagePart
     return None
@@ -45,4 +50,9 @@ del (
     SettingsPart,
     StylesPart,
     part_class_selector,
+)
+
+__all__ = (
+    "new_document",
+    "Document",
 )
